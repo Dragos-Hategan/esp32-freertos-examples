@@ -19,14 +19,14 @@ static void IRAM_ATTR button_isr(void *arg)
 
 static void button_task(void *arg)
 {
-    const TickType_t delay = pdMS_TO_TICKS(DEBOUNCE_MS);
+    const TickType_t DELAY = pdMS_TO_TICKS(DEBOUNCE_MS);
     for (;;) {
         // waits for a “give”; multiple gives before the “take” do not compound
         ulTaskNotifyTake(pdTRUE, portMAX_DELAY);
 
         // simple debounde: confirmes the level after a small delay
         if (gpio_get_level(BUTTON_PIN) == 0) {
-            vTaskDelay(delay);
+            vTaskDelay(DELAY);
             if (gpio_get_level(BUTTON_PIN) == 0) {
                 printf("Button PRESSED\n");
                 // waits for the freeing so that multiple prints are avoided
@@ -51,7 +51,7 @@ static void configure_button(void)
 
     // Installs the ISR once
     // For ISR in IRAM: use ESP_INTR_FLAG_IRAM.
-    ESP_ERROR_CHECK(gpio_install_isr_service(0));
+    ESP_ERROR_CHECK(gpio_install_isr_service(ESP_INTR_FLAG_IRAM));
 
     // Attaches header for pin
     ESP_ERROR_CHECK(gpio_isr_handler_add(BUTTON_PIN, button_isr, (void *)BUTTON_PIN));
