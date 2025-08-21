@@ -5,5 +5,5 @@ The goal is to provide small, clean snippets that demonstrate FreeRTOS primitive
 
 ## Structure
 
-- **Micro-Examples/** – focused, minimal examples (tasks, queues, semaphores, event groups, timers, stream/message buffers).  
 - **Generic-Examples/** – combined use cases that show how primitives work together.  
+- **Micro-Examples/** – focused, minimal examples (tasks, queues, semaphores, event groups, timers, stream/message buffers).  
