@@ -1,0 +1,26 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      //"preLaunchTask": "preRun",
+      "name": "ESP32 OpenOCD",
+      "type": "cppdbg",
+      "request": "launch",
+      "cwd": "${workspaceFolder}/build",
+      "program": "${workspaceFolder}/build/create-delete.elf",
+      "MIMode": "gdb",
+      "miDebuggerPath": "C:/Espressif/Tools/tools/xtensa-esp-elf-gdb/16.2_20250324/xtensa-esp-elf-gdb/bin/xtensa-esp32-elf-gdb.exe",
+      "setupCommands": [
+        { "text": "target remote 127.0.0.1:3333" },
+        { "text": "set remote hardware-watchpoint-limit 2" },
+        { "text": "monitor reset halt" },
+        { "text": "flushregs"},
+        { "text": "mon program_esp build/bootloader/bootloader.bin 0x1000 verify"},
+        { "text": "mon program_esp build/partition_table/partition-table.bin 0x8000 verify"},
+        { "text": "mon program_esp build/create-delete.bin 0x10000 verify"},
+        { "text": "monitor reset halt" },
+        { "text": "flushregs"}        
+      ]
+    }
+  ]
+}

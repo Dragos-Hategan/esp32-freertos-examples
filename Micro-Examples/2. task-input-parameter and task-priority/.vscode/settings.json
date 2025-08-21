@@ -1,0 +1,7 @@
+{
+    "idf.flashType": "UART",
+    "idf.portWin": "COM11",
+    "files.associations": {
+        "esp_system.h": "c"
+    }
+}

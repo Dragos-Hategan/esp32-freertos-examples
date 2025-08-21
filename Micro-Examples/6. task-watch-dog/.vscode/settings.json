@@ -1,0 +1,8 @@
+{
+    "idf.portWin": "COM11",
+    "files.associations": {
+        "freertos.h": "c",
+        "esp_task_wdt.h": "c"
+    },
+    "idf.flashType": "UART"
+}
