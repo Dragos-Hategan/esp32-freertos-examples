@@ -1,0 +1,10 @@
+{
+    "files.associations": {
+        "stdio.h": "c",
+        "string.h": "c",
+        "bootloader_random.h": "c",
+        "inttypes.h": "c"
+    },
+    "idf.portWin": "COM11",
+    "idf.flashType": "UART"
+}

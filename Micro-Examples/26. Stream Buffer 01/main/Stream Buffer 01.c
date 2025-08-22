@@ -56,8 +56,8 @@ void app_main(void)
 
     if (streamBufferHandle != NULL)
     {
-        xTaskCreate(task2, "Task 2", 1024 * 5, NULL, 1, NULL);
-        xTaskCreate(task1, "Task 1", 1024 * 5, NULL, 1, NULL);
+        xTaskCreate(task2, "Consumer", 1024 * 5, NULL, 1, NULL);
+        xTaskCreate(task1, "Producer", 1024 * 5, NULL, 1, NULL);
     }
     else
     {
